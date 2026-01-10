@@ -1,4 +1,4 @@
-# DSTG-softverske-metrike-teorije-grafova
+# Softverske metrike temeljene na teoriji grafova
 ## Opis problema
 
 Testiranje programskog rješenja iznimno je važan proces u životnom ciklusu razvoja softvera kako bi se dobilo visokokvalitetno rješenje koje je u potpunosti funkcionalno. Dodano, važnost testiranja potvrđuje i činjenica kako sve relevantne metodologije razvoja, bez obzira na specifičnu strukturu, neizostavno uključuju testiranje kao kritičan korak. Sukladno tome, može se zaključiti kako testiranje jamči pouzdanost i stabilnost sustava uz uvjet pravilnog izvršavanja.
