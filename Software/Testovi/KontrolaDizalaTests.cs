@@ -1,8 +1,10 @@
 ﻿using Dizalo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Testovi
 {
+    [ExcludeFromCodeCoverage]
     [TestClass]
     public class KontrolaDizalaTests
     {
