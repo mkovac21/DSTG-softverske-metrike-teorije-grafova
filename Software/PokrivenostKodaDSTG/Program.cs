@@ -102,7 +102,6 @@ namespace PokrivenostKodaDSTG
                 }
             }
 
-            RezultatTablica();
             Console.WriteLine("Pritisnite bilo koju tipku za izlaz...");
             Console.ReadKey();
         }
