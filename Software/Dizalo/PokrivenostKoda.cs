@@ -11,15 +11,15 @@ namespace Dizalo
     public static class PokrivenostKoda
     {
         // Konstante
-        public static int CoverableLinijeDizalo { get; set; } = 87;
+        public static int CoverableLinijeDizalo { get; set; } = 89;
         public static int CoverableLinijeAuthException { get; set; } = 3;
         public static int CoverableLinijeInvalidException { get; set; } = 3;
         public static int CoverableLinijeKat { get; set; } = 3;
-        public static int CoverableLinijeKontrolaDizala { get; set; } = 78;
-        public static int TotalLinijeKontrolaDizala { get; set; } = 128;
+        public static int CoverableLinijeKontrolaDizala { get; set; } = 80;
+        public static int TotalLinijeKontrolaDizala { get; set; } = 129;
         public static int TotalLinijeKat { get; set; } = 19;
-        public static int TotalLinijeInvalidException { get; set; } = 128;
-        public static int TotalLinijeAuthException { get; set; } = 128;
+        public static int TotalLinijeInvalidException { get; set; } = 129;
+        public static int TotalLinijeAuthException { get; set; } = 129;
         public static int TotalBlokovi { get; set; } = 22;
 
         // Skupovi ID-eva linija i blokova
