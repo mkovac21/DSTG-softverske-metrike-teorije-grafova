@@ -72,12 +72,12 @@ namespace Dizalo
             PokrivenostKoda. LinijeIDs.Add(72); if (OdredisniKat != null)
             {
                 PokrivenostKoda.BlokoviIDs.Add(72); PokrivenostKoda.LinijeIDs.Add(73); PokrivenostKoda.LinijeIDs.Add(74); if (OdredisniKat.Lozinka != null)
-                {PokrivenostKoda.BlokoviIDs.Add(75); PokrivenostKoda.LinijeIDs.Add(75);
+                {PokrivenostKoda.BlokoviIDs.Add(75); PokrivenostKoda.LinijeIDs.Add(75); PokrivenostKoda.LinijeIDs.Add(76); 
                     if (OdredisniKat.Lozinka != lozinka) {
-                        PokrivenostKoda.BlokoviIDs.Add(76); PokrivenostKoda.LinijeIDs.Add(76); PokrivenostKoda.LinijeIDs.Add(77); throw new FloorAuthorizationMissingException("Za odabrani kat morate unijeti ispravnu lozinku!");
+                        PokrivenostKoda.BlokoviIDs.Add(76); PokrivenostKoda.LinijeIDs.Add(77); throw new FloorAuthorizationMissingException("Za odabrani kat morate unijeti ispravnu lozinku!");
                     }
-                PokrivenostKoda.BlokoviIDs.Add(-76); }
-                PokrivenostKoda.BlokoviIDs.Add(-75); PokrivenostKoda.LinijeIDs.Add(79); PokrivenostKoda.LinijeIDs.Add(80); if (OdredisniKat.Pozicija == TrenutniKat.Pozicija)
+                PokrivenostKoda.BlokoviIDs.Add(-76); PokrivenostKoda.LinijeIDs.Add(79); }
+                PokrivenostKoda.BlokoviIDs.Add(-75); PokrivenostKoda.LinijeIDs.Add(80); if (OdredisniKat.Pozicija == TrenutniKat.Pozicija)
                 {
                     PokrivenostKoda.BlokoviIDs.Add(81); PokrivenostKoda.LinijeIDs.Add(81); PokrivenostKoda.LinijeIDs.Add(82); PokrivenostKoda.LinijeIDs.Add(83); putanja.Add(TrenutniKat);
                 }
