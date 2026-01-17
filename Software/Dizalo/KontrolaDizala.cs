@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Dizalo
@@ -29,7 +30,6 @@ namespace Dizalo
         private Kat OdredisniKat { get; set; }
         public string EkranskiPrikaz { get; set; }
         public bool UKvaru { get; set; } = false;
-
         public KontrolaDizala()
         {
             PokrivenostKoda.LinijeIDs.Add(27); PokrivenostKoda.LinijeIDs.Add(28); PokrivenostKoda.LinijeIDs.Add(29); PokrivenostKoda.LinijeIDs.Add(30); PokrivenostKoda.LinijeIDs.Add(31); PokrivenostKoda.LinijeIDs.Add(33); PokrivenostKoda.LinijeIDs.Add(34); PokrivenostKoda.LinijeIDs.Add(35); Katovi = new List<Kat>();
@@ -48,8 +48,8 @@ namespace Dizalo
 
         public void Resetiraj()
         {
-            PokrivenostKoda.LinijeIDs.Add(50); PokrivenostKoda.LinijeIDs.Add(51); TrenutniKat = Katovi.FirstOrDefault(k => k.Naziv == "Prizemlje");
-            PokrivenostKoda.LinijeIDs.Add(52); PokrivenostKoda.LinijeIDs.Add(53); OdredisniKat = null;
+            PokrivenostKoda.BlokoviIDs.Add(52); PokrivenostKoda.LinijeIDs.Add(50); PokrivenostKoda.LinijeIDs.Add(51); TrenutniKat = Katovi.FirstOrDefault(k => k.Naziv == "Prizemlje");
+            PokrivenostKoda.BlokoviIDs.Add(-52); PokrivenostKoda.LinijeIDs.Add(52); PokrivenostKoda.LinijeIDs.Add(53); OdredisniKat = null;
         }
 
         public void PozoviDizalo(int kat)
@@ -71,58 +71,59 @@ namespace Dizalo
             PokrivenostKoda.LinijeIDs.Add(71); OdredisniKat = Katovi.FirstOrDefault(k => k.Pozicija == kat);
             PokrivenostKoda. LinijeIDs.Add(72); if (OdredisniKat != null)
             {
-                PokrivenostKoda.BlokoviIDs.Add(72); PokrivenostKoda.LinijeIDs.Add(73); PokrivenostKoda.LinijeIDs.Add(74); if (OdredisniKat.Lozinka != null && OdredisniKat.Lozinka != lozinka)
+                PokrivenostKoda.BlokoviIDs.Add(72); PokrivenostKoda.LinijeIDs.Add(73); PokrivenostKoda.LinijeIDs.Add(74); if (OdredisniKat.Lozinka != null)
+                {PokrivenostKoda.BlokoviIDs.Add(75); PokrivenostKoda.LinijeIDs.Add(75);
+                    if (OdredisniKat.Lozinka != lozinka) {
+                        PokrivenostKoda.BlokoviIDs.Add(76); PokrivenostKoda.LinijeIDs.Add(76); PokrivenostKoda.LinijeIDs.Add(77); throw new FloorAuthorizationMissingException("Za odabrani kat morate unijeti ispravnu lozinku!");
+                    }
+                PokrivenostKoda.BlokoviIDs.Add(-76); }
+                PokrivenostKoda.BlokoviIDs.Add(-75); PokrivenostKoda.LinijeIDs.Add(79); PokrivenostKoda.LinijeIDs.Add(80); if (OdredisniKat.Pozicija == TrenutniKat.Pozicija)
                 {
-                    PokrivenostKoda.BlokoviIDs.Add(75); PokrivenostKoda.LinijeIDs.Add(75); PokrivenostKoda.LinijeIDs.Add(76); throw new FloorAuthorizationMissingException("Za odabrani kat morate unijeti ispravnu lozinku!");
-                }
-
-                PokrivenostKoda.BlokoviIDs.Add(-75); PokrivenostKoda.BlokoviIDs.Add(76); PokrivenostKoda.BlokoviIDs.Add(-76); PokrivenostKoda.LinijeIDs.Add(79); if (OdredisniKat.Pozicija == TrenutniKat.Pozicija)
-                {
-                    PokrivenostKoda.BlokoviIDs.Add(80); PokrivenostKoda.LinijeIDs.Add(80); PokrivenostKoda.LinijeIDs.Add(81); PokrivenostKoda.LinijeIDs.Add(82); putanja.Add(TrenutniKat);
+                    PokrivenostKoda.BlokoviIDs.Add(81); PokrivenostKoda.LinijeIDs.Add(81); PokrivenostKoda.LinijeIDs.Add(82); PokrivenostKoda.LinijeIDs.Add(83); putanja.Add(TrenutniKat);
                 }
                 else if (OdredisniKat.Pozicija > TrenutniKat.Pozicija)
                 {
-                    PokrivenostKoda.BlokoviIDs.Add(83); PokrivenostKoda.BlokoviIDs.Add(85); PokrivenostKoda.LinijeIDs.Add(83); PokrivenostKoda.LinijeIDs.Add(84); PokrivenostKoda.LinijeIDs.Add(85); for (int i = TrenutniKat.Pozicija; i <= OdredisniKat.Pozicija; i++)
+                    PokrivenostKoda.BlokoviIDs.Add(-81); PokrivenostKoda.BlokoviIDs.Add(85); PokrivenostKoda.BlokoviIDs.Add(86); PokrivenostKoda.LinijeIDs.Add(84); PokrivenostKoda.LinijeIDs.Add(85); PokrivenostKoda.LinijeIDs.Add(86); for (int i = TrenutniKat.Pozicija; i <= OdredisniKat.Pozicija; i++)
                     {
-                        PokrivenostKoda.LinijeIDs.Add(86); PokrivenostKoda.LinijeIDs.Add(87); PokrivenostKoda.LinijeIDs.Add(88); putanja.Add(Katovi.FirstOrDefault(k => k.Pozicija == i));
+                        PokrivenostKoda.LinijeIDs.Add(87); PokrivenostKoda.LinijeIDs.Add(88); PokrivenostKoda.LinijeIDs.Add(89); putanja.Add(Katovi.FirstOrDefault(k => k.Pozicija == i));
                     }
-                    PokrivenostKoda.BlokoviIDs.Add(-85); PokrivenostKoda.LinijeIDs.Add(89); TrenutniKat = OdredisniKat;
-                    PokrivenostKoda.LinijeIDs.Add(90); PokrivenostKoda.LinijeIDs.Add(91); OdredisniKat = null;
+                    PokrivenostKoda.BlokoviIDs.Add(-86); PokrivenostKoda.LinijeIDs.Add(90); TrenutniKat = OdredisniKat;
+                    PokrivenostKoda.LinijeIDs.Add(91); PokrivenostKoda.LinijeIDs.Add(92); OdredisniKat = null;
                 }
                 else
                 {
-                    PokrivenostKoda.BlokoviIDs.Add(-80); PokrivenostKoda.BlokoviIDs.Add(-83); PokrivenostKoda.LinijeIDs.Add(93); PokrivenostKoda.LinijeIDs.Add(94); for (int i = TrenutniKat.Pozicija; i >= OdredisniKat.Pozicija; i--)
+                    PokrivenostKoda.BlokoviIDs.Add(-81); PokrivenostKoda.BlokoviIDs.Add(-85); PokrivenostKoda.BlokoviIDs.Add(95); PokrivenostKoda.LinijeIDs.Add(94); PokrivenostKoda.LinijeIDs.Add(95); for (int i = TrenutniKat.Pozicija; i >= OdredisniKat.Pozicija; i--)
                     {
-                    PokrivenostKoda.LinijeIDs.Add(95); PokrivenostKoda.LinijeIDs.Add(96); PokrivenostKoda.LinijeIDs.Add(97); putanja.Add(Katovi.FirstOrDefault(k => k.Pozicija == i));
+                    PokrivenostKoda.LinijeIDs.Add(96); PokrivenostKoda.LinijeIDs.Add(97); PokrivenostKoda.LinijeIDs.Add(98); putanja.Add(Katovi.FirstOrDefault(k => k.Pozicija == i));
                     }
-                    PokrivenostKoda.LinijeIDs.Add(98); TrenutniKat = OdredisniKat;
-                    PokrivenostKoda.LinijeIDs.Add(99); PokrivenostKoda.LinijeIDs.Add(100); OdredisniKat = null;
+                    PokrivenostKoda.BlokoviIDs.Add(-95); PokrivenostKoda.LinijeIDs.Add(99); TrenutniKat = OdredisniKat;
+                    PokrivenostKoda.LinijeIDs.Add(100); PokrivenostKoda.LinijeIDs.Add(101); OdredisniKat = null;
                 }
 
-                PokrivenostKoda.LinijeIDs.Add(102); PokrivenostKoda.LinijeIDs.Add(103); EkranskiPrikaz = IspisiPutanju(putanja);
+                PokrivenostKoda.LinijeIDs.Add(103); PokrivenostKoda.LinijeIDs.Add(104); EkranskiPrikaz = IspisiPutanju(putanja);
             }
             else
             {
-                PokrivenostKoda.BlokoviIDs.Add(-72); PokrivenostKoda.LinijeIDs.Add(105); PokrivenostKoda.LinijeIDs.Add(106); throw new InvalidBuildingFloorException("Uneseni kat ne postoji!");
+                PokrivenostKoda.BlokoviIDs.Add(-72); PokrivenostKoda.LinijeIDs.Add(106); PokrivenostKoda.LinijeIDs.Add(107); throw new InvalidBuildingFloorException("Uneseni kat ne postoji!");
             }
-        PokrivenostKoda.LinijeIDs.Add(108); }
+        PokrivenostKoda.LinijeIDs.Add(109); }
 
         private string IspisiPutanju(List<Kat> lista)
         {
-            PokrivenostKoda.LinijeIDs.Add(111); PokrivenostKoda.LinijeIDs.Add(112); string ispis = "";
-            PokrivenostKoda.LinijeIDs.Add(113); PokrivenostKoda.BlokoviIDs.Add(113); foreach (Kat k in lista)
+            PokrivenostKoda.LinijeIDs.Add(112); PokrivenostKoda.LinijeIDs.Add(113); string ispis = "";
+            PokrivenostKoda.LinijeIDs.Add(114); PokrivenostKoda.BlokoviIDs.Add(114); foreach (Kat k in lista)
             {
-                PokrivenostKoda.LinijeIDs.Add(114); PokrivenostKoda.LinijeIDs.Add(115); if (k != lista[lista.Count - 1])
+                PokrivenostKoda.LinijeIDs.Add(115); PokrivenostKoda.LinijeIDs.Add(116); if (k != lista[lista.Count - 1])
                 {
-                    PokrivenostKoda.BlokoviIDs.Add(115); PokrivenostKoda.LinijeIDs.Add(116); PokrivenostKoda.LinijeIDs.Add(117); PokrivenostKoda.LinijeIDs.Add(118); ispis += k.Naziv + "->";
+                    PokrivenostKoda.BlokoviIDs.Add(116); PokrivenostKoda.LinijeIDs.Add(117); PokrivenostKoda.LinijeIDs.Add(118); PokrivenostKoda.LinijeIDs.Add(119); ispis += k.Naziv + "->";
                 }
                 else
                 {
-                    PokrivenostKoda.BlokoviIDs.Add(-115); PokrivenostKoda.LinijeIDs.Add(120); PokrivenostKoda.LinijeIDs.Add(121); PokrivenostKoda.LinijeIDs.Add(122); ispis += k.Naziv;
+                    PokrivenostKoda.BlokoviIDs.Add(-116); PokrivenostKoda.LinijeIDs.Add(121); PokrivenostKoda.LinijeIDs.Add(122); PokrivenostKoda.LinijeIDs.Add(123); ispis += k.Naziv;
                 }
-                PokrivenostKoda.LinijeIDs.Add(123); }
+                PokrivenostKoda.LinijeIDs.Add(124); }
 
-            PokrivenostKoda.BlokoviIDs.Add(-113); PokrivenostKoda.LinijeIDs.Add(125); PokrivenostKoda.LinijeIDs.Add(126); return ispis;
+            PokrivenostKoda.BlokoviIDs.Add(-114); PokrivenostKoda.LinijeIDs.Add(126); PokrivenostKoda.LinijeIDs.Add(127); return ispis;
         }
     }
 }
